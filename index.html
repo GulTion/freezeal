@@ -9,19 +9,40 @@
 </head>
 
 <body>  
+    <div class="buttons">
+        <button onclick="getSub(9)">CN</button>
+        <button onclick="getSub(11)">DAA</button>
+        <button onclick="getSub(12)">COA</button>
+    </div>
+    <div id="data">
+        Press Button of any subject
+    </div>
 
     
 </body>
 <script>
-    fetch("https://api.freeatzeal.com/notes/").then(e=>e.json()).then(e=>{
+    const getSub = (id)=>{
+        let data = document.querySelector("#data");
+        data.innerHTML = "Loading..";
+
+            fetch(`https://api.freeatzeal.com/notes/?subject=${id}`).then(e=>e.json()).then(e=>{
         console.log(e);
+        data.innerHTML = "";
+
         e.results.forEach(k=>{
             let div = document.createElement("div");
-            div.className="note";
-            div.innerHTML =k.description;
-            document.body.appendChild(div);
+            div.className="notes";
+            div.innerHTML =`
+  
+            <div class="note">${k.description}</div>
+            `;
+            data.appendChild(div);
         }
-        )
-    })
+        )})
+    
+     
+
+    }
+
 </script>
 </html>
