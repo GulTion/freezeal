@@ -1,12 +1,15 @@
 .notes{
     /* font-size: 12px; */
     color: #666;
-   
+    font-family: Georgia, serif;
+    font-size: 18px;
     margin: 50px 0;
     border: 2px solid black;
     padding:0 20px;
     box-sizing: content-box;
     background: white;
+    text-align: justify;
+    line-height: 2;
 }
 .heading{
     font-size: 20px;
